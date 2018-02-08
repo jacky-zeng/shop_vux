@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>test1</h1>
+        <h1><div @click="goBack"><</div>test1</h1>
         <group>
             <cell title="title" value="value"></cell>
             <cell title="xxx" value="yyy"></cell>
@@ -68,7 +68,10 @@
         methods : {
              change (val) {
                   console.log(val)
-                }
+                },
+             goBack () {
+                this.$router.goBack()
+             }
         },
         mounted(){
 

@@ -19,21 +19,21 @@
 <script>
   import {Swiper, SwiperItem, Grid, GridItem, GroupTitle, Search, Divider } from 'vux'
   const baseList = [{
-    url: 'javascript:',
+    url: '/test1',
     img: 'https://static.vux.li/demo/1.jpg',
     title: '送你一朵fua'
   }, {
-    url: 'javascript:',
+    url: '/test2',
     img: 'https://static.vux.li/demo/2.jpg',
     title: '送你一辆车'
   }, {
-    url: 'javascript:',
+    url: '/test3',
     img: 'https://static.vux.li/demo/3.jpg',
     title: '送你一次旅行'
   }]
 
   const urlList = baseList.map((item, index) => ({
-    url: 'http://m.baidu.com',
+    url: item.url,
     img: item.img,
     title: `(可点击)${item.title}`
   }))
