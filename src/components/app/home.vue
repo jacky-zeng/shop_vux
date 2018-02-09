@@ -11,13 +11,15 @@
           <!--@on-submit="onSubmit"-->
     <divider>限时特卖</divider>
     <img src="https://o5omsejde.qnssl.com/demo/test1.jpg?type=webp" style="width:100%">
-    <br/><divider>我是有底线的</divider>
+    <br/><divider>{{userInfo.name}} 我是有底线的</divider>
     <br/><br/>
   </div>
 </template>
 
 <script>
   import {Swiper, SwiperItem, Grid, GridItem, GroupTitle, Search, Divider } from 'vux'
+  import store from '../../../src/store/store'
+
   const baseList = [{
     url: '/test1',
     img: 'https://static.vux.li/demo/1.jpg',
@@ -51,10 +53,19 @@
       return {
         demo06_list: urlList,
         demo06_index: 0,
-        swiperItemIndex: 1
+        swiperItemIndex: 1,
+        userInfo:{name:''}
       }
     },
+    mounted(){  //页面加载完后 立即执行
+      this.getUserInfo();
+    },
     methods: {
+      getUserInfo() {
+        if (store.state.user) {
+          this.userInfo = store.state.user;
+        }
+      },
       onItemClick () {
         console.log('on item click')
       },

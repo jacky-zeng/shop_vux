@@ -21,6 +21,9 @@
 
 <script>
   import {XHeader, Popup, Group, Cell, TransferDom } from 'vux'
+  import store from '../../../../src/store/store'
+  import api from '../../../../src/constant/api'
+  import * as types from '../../../../src/store/types'
 
   export default {
     directives: {
@@ -37,19 +40,53 @@
     data () {
       return {
         title: 'Demo',
-        menuList: [
-          {title: 'userInfo', value: '', url: '/userInfo'},
-          {title: '', value: 'userInfo', url: '/userInfo', class: 'menu'},
-          {title: 'userInfo', value: '', url: '/userInfo'},
-          {title: '', value: 'userInfo', url: '/userInfo', class: 'menu'}
-        ],
+        menuList: [],
         showMenus: false
       }
     },
+    mounted() {
+      this.init();
+    },
     methods: {
+      init() {
+        if (store.state.user) {
+          let userInfo = JSON.parse(store.state.user);
+          this.menuList = [
+            {title: userInfo.name+'', value: '', url: ''},
+            {title: '', value: '退出', url: '', class: 'menu'},
+          ];
+        }else{
+          this.menuList = [
+            {title: '您好', value: '', url: ''},
+            {title: '', value: '请登录', url: '/login', class: 'menu'},
+          ];
+        }
+      },
       goToUrl (path) {
+        let vue = this;
         if (path) {
-          console.log(path)
+          vue.showMenus = false;
+          vue.$router.push({path: path});
+          console.log(path);
+        }else{
+          vue.axios.post(api.logout, [])
+            .then(function (res) {
+              let data = res.data;
+              if (data.code == 200) {
+                store.commit(types.LOGOUT);
+                vue.menuList = [
+                  {title: '您好', value: '', url: ''},
+                  {title: '', value: '请登录', url: '/login', class: 'menu'},
+                ];
+                vue.showMenus = false;
+                vue.$router.push({name: "login", path: "/login"});
+              } else {
+                alert(data.message);
+              }
+            })
+            .catch(function (err) {
+              alert('statusCode:' + err.status + '\n' + 'statusText:' + err.statusText + '\n' + 'description:\n' + JSON.stringify(err.responseJSON));
+            });
         }
       }
     }

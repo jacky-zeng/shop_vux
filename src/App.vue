@@ -2,14 +2,14 @@
 <template>
   <div id="Init">
     <app-header class="Header"></app-header>
+    <!--<div class="content">-->
+      <!--<router-link to="/test1">test1</router-link>-->
+      <!--<router-link to="/test2">test2</router-link>-->
+      <!--<router-link to="/test3">test3</router-link>-->
+    <!--</div>-->
     <router-view>
       <!--vue路由切换时，更新的就是这个里面的内容-->
     </router-view>
-    <div class="content">
-       <router-link to="/test1">test1</router-link>
-       <router-link to="/test2">test2</router-link>
-       <router-link to="/test3">test3</router-link>
-    </div>
     <app-footer></app-footer>
   </div>
 </template>
