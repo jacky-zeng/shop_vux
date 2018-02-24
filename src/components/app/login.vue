@@ -21,9 +21,9 @@
 <script>
   import {Group, Cell, XInput, XButton, Loading} from 'vux'
 
-  import store from '../../../src/store/store'
-  import api from '../../../src/constant/api'
-  import * as types from '../../../src/store/types'
+  import store from '@/store/store'
+  import api from '@/constant/api'
+  import * as types from '@/store/types'
 
   export default {
     components: {

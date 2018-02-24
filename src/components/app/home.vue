@@ -18,7 +18,7 @@
 
 <script>
   import {Swiper, SwiperItem, Grid, GridItem, GroupTitle, Search, Divider } from 'vux'
-  import store from '../../../src/store/store'
+  import store from '@/store/store'
 
   const baseList = [{
     url: '/test1',
