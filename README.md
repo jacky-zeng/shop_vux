@@ -17,14 +17,15 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 
-# run unit tests
-npm run unit
+# 说明
 
-# run e2e tests
-npm run e2e
+>  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 
-# run all tests
-npm test
-```
+>  博客地址[Vue 2.0 自学](https://www.zengyanqi.com/2018/02/24/vue-2-0-1/)
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+>  项目地址[demo](http://store.zengyanqi.com)
+
+# 项目截图
+
+<img src="https://www.zengyanqi.com/wp-content/uploads/2018/02/xxx.gif" /> 
+
