@@ -27,5 +27,5 @@ npm run build --report
 
 # 项目截图
 
-![image](http://github.com/jacky-zeng/shop_vux/raw/master/images/introduction.gif)
+<img src="http://github.com/jacky-zeng/shop_vux/raw/master/images/introduction.gif" />
 
