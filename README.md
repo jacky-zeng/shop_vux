@@ -1,7 +1,7 @@
 # vux_demo
 
 > jacky-zeng's vux_demo
-
+``` bash
 ## Build Setup
 
 # install dependencies
@@ -15,6 +15,7 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
+```
 
 # 说明
 
@@ -26,5 +27,5 @@ npm run build --report
 
 # 项目截图
 
-<img src="https://www.zengyanqi.com/wp-content/uploads/2018/02/xxx.gif" /> <img src="https://www.zengyanqi.com/wp-content/uploads/2018/02/xxx.gif" />
+<img src="https://www.zengyanqi.com/wp-content/uploads/2018/02/xxx.gif" />
 
