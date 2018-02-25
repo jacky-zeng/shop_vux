@@ -27,5 +27,5 @@ npm run build --report
 
 # 项目截图
 
-<img src="https://www.zengyanqi.com/wp-content/uploads/2018/02/xxx.gif" />
+![image](http://github.com/jacky-zeng/shop_vux/raw/master/images/introduction.gif)
 
