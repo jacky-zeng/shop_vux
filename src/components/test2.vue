@@ -10,6 +10,7 @@
 <script>
     document.title = 'test2';
     import { Group, Cell } from 'vux'
+    import store from '@/store/store'
     export default{
         components: {
             Group,
@@ -24,7 +25,6 @@
 
         },
         mounted(){
-
         }
     }
 </script>

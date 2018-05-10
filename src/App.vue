@@ -15,8 +15,8 @@
 </template>
 
 <script>
-   import AppHeader from './components/app/layout/Header'
-   import AppFooter from './components/app/layout/Footer'
+   import AppHeader from './components/layout/Header'
+   import AppFooter from './components/layout/Footer'
    export default {
      components: {
          AppHeader,

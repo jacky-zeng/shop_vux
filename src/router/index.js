@@ -1,19 +1,3 @@
-// import Vue from 'vue'
-// import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
-//
-// Vue.use(Router)
-//
-// export default new Router({
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'HelloWorld',
-//       component: HelloWorld
-//     }
-//   ]
-// })
-
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import store from '../store/store';
@@ -33,22 +17,22 @@ const vueRouter = new VueRouter({
     {
       path: '/',
       name: 'page',
-      component: resolve => void(require(['../components/app/transition/page.vue'], resolve)), // 引入页面切换组件
+      component: resolve => void(require(['../components/transition/page.vue'], resolve)), // 引入页面切换组件
       children: [
         {
           name: "home",
           path: '/',
-          component: resolve => void(require(['../components/app/home.vue'], resolve))
+          component: resolve => void(require(['../components/home.vue'], resolve))
         },
         {
           name: "home",
           path: '/home',
-          component: resolve => void(require(['../components/app/home.vue'], resolve))
+          component: resolve => void(require(['../components/home.vue'], resolve))
         },
         {
           name: "login",
           path: '/login',
-          component: resolve => void(require(['../components/app/login.vue'], resolve))
+          component: resolve => void(require(['../components/login.vue'], resolve))
         },
         {
           name: "test1",
@@ -56,17 +40,17 @@ const vueRouter = new VueRouter({
           meta: {
             requireAuth: true,  // 添加该字段，表示进入这个路由是需要登录的
           },
-          component: resolve => void(require(['../components/app/test1.vue'], resolve))
+          component: resolve => void(require(['../components/test1.vue'], resolve))
         },
         {
           name: "test2",
           path: '/test2',
-          component: resolve => void(require(['../components/app/test2.vue'], resolve))
+          component: resolve => void(require(['../components/test2.vue'], resolve))
         },
         {
           name: "test3",
           path: '/test3',
-          component: resolve => void(require(['../components/app/test3.vue'], resolve))
+          component: resolve => void(require(['../components/test3.vue'], resolve))
         }
       ]
     }
@@ -77,7 +61,7 @@ export default vueRouter;
 
 vueRouter.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {  // 判断该路由是否需要登录权限
-    if (store.state.token) {  // 通过vuex state获取当前的token是否存在
+    if (store.state.user.token) {  // 通过vuex state获取当前的token是否存在
       //console.log('route token = ' + store.state.token);
       next();
     }

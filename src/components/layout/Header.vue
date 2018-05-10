@@ -21,8 +21,8 @@
 
 <script>
   import {XHeader, Popup, Group, Cell, TransferDom } from 'vux'
-  import store from '@/store/store'          //'@': resolve('src')
-  import api from '@/constant/api'
+  import store from '@/store/store'          //'@': resolve('src') 定义在build\webpack.base.conf.js文件中
+  import api from '@/http/api'
   import * as types from '@/store/types'
 
   export default {
@@ -36,6 +36,13 @@
       Cell
     },
     computed: {
+      menuList(){
+          let userInfo = JSON.parse(store.state.user.userInfo);
+          return [
+            {title: userInfo.name+'', value: '', url: ''},
+            {title: '', value: '退出', url: '', class: 'menu'},
+          ];
+      }
     },
     data () {
       return {
@@ -49,8 +56,8 @@
     },
     methods: {
       init() {
-        if (store.state.user) {
-          let userInfo = JSON.parse(store.state.user);
+        if (store.state.user.userInfo) {
+          let userInfo = JSON.parse(store.state.user.userInfo);
           this.menuList = [
             {title: userInfo.name+'', value: '', url: ''},
             {title: '', value: '退出', url: '', class: 'menu'},

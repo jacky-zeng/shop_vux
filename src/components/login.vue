@@ -22,7 +22,7 @@
   import {Group, Cell, XInput, XButton, Loading} from 'vux'
 
   import store from '@/store/store'
-  import api from '@/constant/api'
+  import api from '@/http/api'
   import * as types from '@/store/types'
 
   export default {
@@ -42,14 +42,14 @@
       }
     },
     mounted(){  //页面加载完后 立即执行
-      if (store.state.token){
+      if (store.state.user.token){
         this.login();
       }
     },
     methods: {
       login() {
         let vue = this;
-        if (store.state.token) {
+        if (store.state.user.token) {
           let redirect = decodeURIComponent(vue.$route.query.redirect || '/');
           if(redirect.startsWith('/login')){
             vue.$router.push({name: "home", path: "/home"});
@@ -76,34 +76,24 @@
                 //window.localStorage.setItem('token', data.data.token_type + ' ' + data.data.access_token);
                 let token = data.data.token_type + ' ' + data.data.access_token;
                 store.commit(types.LOGIN, token);
-                vue.axios.post(api.userInfo, {})
-                  .then(function (res) {
-                    let uData = res.data;
-                    if (uData.code == 200) {
-                      let userInfo = uData.data;
-                      store.commit(types.USER, JSON.stringify(userInfo));
-                      //Vue.http.headers.common['Authorization'] = window.localStorage.getItem('token');
-                      // 想要导航到不同的 URL，则使用 router.push 方法。这个方法会向 history 栈添加一个新的记录，
-                      // 所以，当用户点击浏览器后退按钮时，则回到之前的 URL。
 
-                      //全部重新加载 header.vue 会重新加载
-                      window.location.reload();
+                store.dispatch('getUserInfo').then(res => {
+                    window.location.reload();  //执行完getUserInfo后，再刷新
+                }).catch( err => {
+                    console.log(err);
+                })
 
-                      //outer.push header.vue 不会重新加载
-                      // let redirect = decodeURIComponent(vue.$route.query.redirect || '/');
-                      // vue.$router.push({
-                      //   path: redirect
-                      // });
+                //store.dispatch('getUserInfo');
+                //全部重新加载 header.vue 会重新加载
+                //window.location.reload();
 
-                      //vue.$router.push({name: "home", path: "/home"});
+                //outer.push header.vue 不会重新加载
+                // let redirect = decodeURIComponent(vue.$route.query.redirect || '/');
+                // vue.$router.push({
+                //   path: redirect
+                // });
+                // vue.$router.push({name: "home", path: "/home"});
 
-                    } else {
-                      alert(uData.message);
-                    }
-                  })
-                  .catch(function (err) {
-                    alert('statusCode:' + err.status + '\n' + 'statusText:' + err.statusText + '\n' + 'description:\n' + JSON.stringify(err.responseJSON));
-                  });
               } else {
                 alert(data.message);
               }
