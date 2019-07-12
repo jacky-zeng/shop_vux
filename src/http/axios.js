@@ -9,7 +9,7 @@ import router from '../router'
 
 // axios 配置
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = 'http://api.zengyanqi.com/api';
+axios.defaults.baseURL = 'http://m.zengyanqi.com/api';
 
 // http request 拦截器
 axios.interceptors.request.use(
