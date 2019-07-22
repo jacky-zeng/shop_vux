@@ -35,15 +35,15 @@
       Group,
       Cell
     },
-    computed: {
-      menuList(){
-          let userInfo = JSON.parse(store.state.user.userInfo);
-          return [
-            {title: userInfo.name+'', value: '', url: ''},
-            {title: '', value: '退出', url: '', class: 'menu'},
-          ];
-      }
-    },
+    // computed: {
+    //   menuList(){
+    //       let userInfo = JSON.parse(store.state.user.userInfo);
+    //       return [
+    //         {title: userInfo.name+'', value: '', url: ''},
+    //         {title: '', value: '退出', url: '', class: 'menu'},
+    //       ];
+    //   }
+    // },
     data () {
       return {
         title: 'Demo',

@@ -33,7 +33,7 @@ const mutations = {
 const actions = {
     // 父组件发送异步请求
     getUserInfo(store) {
-        vm.axios.post(api.userInfo, {})
+        return vm.axios.post(api.userInfo, {})  //必须return dispatch().then() 才能先执行dispatch 再执行then里的
             .then(function (res) {
                 let uData = res.data;
                 if (uData.code == 200) {

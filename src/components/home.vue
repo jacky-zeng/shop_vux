@@ -10,7 +10,7 @@
           <!--@on-cancel="onCancel"-->
           <!--@on-submit="onSubmit"-->
     <divider>限时特卖</divider>
-    <img src="https://o5omsejde.qnssl.com/demo/test1.jpg?type=webp" style="width:100%">
+    <img src="../assets/images/product.jpeg" style="width:100%">
     <br/><divider>{{userInfo.name}} 我是有底线的</divider>
     <br/><br/>
   </div>
@@ -22,22 +22,22 @@
 
   const baseList = [{
     url: '/test1',
-    img: 'https://static.vux.li/demo/1.jpg',
-    title: '送你一朵fua'
+    img: require('../assets/images/banner1.png'),
+    title: '轮播一'
   }, {
     url: '/test2',
-    img: 'https://static.vux.li/demo/2.jpg',
-    title: '送你一辆车'
+    img: require('../assets/images/banner2.png'),
+    title: '轮播二'
   }, {
     url: '/test3',
-    img: 'https://static.vux.li/demo/3.jpg',
-    title: '送你一次旅行'
+    img: require('../assets/images/banner3.png'),
+    title: '轮播三'
   }]
 
   const urlList = baseList.map((item, index) => ({
     url: item.url,
     img: item.img,
-    title: `(可点击)${item.title}`
+    title: `${item.title}`
   }))
   export default {
     components: {

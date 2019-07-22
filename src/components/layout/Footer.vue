@@ -1,6 +1,6 @@
 <!--公用底部-->
 <template>
-  <div>
+  <div class="footer">
     <tabbar>
       <tabbar-item selected link="/home">
         <img slot="icon" src="static/bottom/icon_nav_button.png">
@@ -35,5 +35,11 @@
   }
 </script>
 <style>
-
+  .footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+  }
 </style>
